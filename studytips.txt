@@ -1,0 +1,16 @@
+Operation Systems study flow => 
+
+## Don't Watch Complete videos on Yt or any channel
+Watch only individual topics like open(), read(), write()
+
+1. Linux basic commands- ls,mv,cp,rm,mkdir,top,ps,chrt,nice,renice
+   absolute vs relative path?
+   what are environment variables?
+   
+
+2. refer to file operations open(), read(), write(), close()
+  {read man 2 <function()> for details. Linux System Programming -> Chapter 2 Page-25, Read topics open(), read(), write(), close() only.
+  Chapter 3 page 67, page 77 Issue of alignment}
+
+3. refer to process operations fork(), system(), execve() getpid(), getppid(), wait(), exit().
+  {Linux System Programming-> chapter 5 page 137, 138,139 and 140, execl(), fork(), page 148 Terminating a process, page 162 zombies, page 172 daemons, page          146 copy-on-write}
