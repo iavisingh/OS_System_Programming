@@ -14,3 +14,10 @@ Watch only individual topics like open(), read(), write()
 
 3. refer to process operations fork(), system(), execve() getpid(), getppid(), wait(), exit().
   {Linux System Programming-> chapter 5 page 137, 138,139 and 140, execl(), fork(), page 148 Terminating a process, page 162 zombies, page 172 daemons, page          146 copy-on-write}
+{Book=>Operation System Concepts => Chapter 8 and 9 important}
+
+
+
+
+
+
