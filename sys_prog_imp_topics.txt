@@ -1,0 +1,83 @@
+   Linux System programming syllabus 
+
+1. Basic Linux commands => Shared as linux_commands.txt
+   system calls => What are system calls. need for system calls?
+   kernel space and user space?
+ 
+2. File Management 
+   open(), read(), write(), close()
+   buffered io in file system
+   create cat command using open() read() write() close()
+   
+3. Process management 
+   /proc/ 
+   process id
+   ready queue => running queue => waiting queue
+   pid()
+   ppid()
+   fork()
+   system()
+   execl()
+   clone()
+   fork()
+   wait()
+   exit()
+   kill()
+   signal()
+
+   daemon tasks
+   process control block => info on each process stored
+   Linux process table => info on all the running processes
+   init process => first process launched by Linux, handles remaining boot, starting services, login etc
+   difference in system, fork, and exec..()
+   effect on pid in exec..()
+   zombie child process
+   orphan child process
+   who perform cleanup when parent waits for child with wait() and when parent doesn't do wait() and exits
+   copy on write in parent and child process when fork() is done.
+   what are signals?? software interrupts for handling asynchronous events.
+   types of signals
+   signal()
+   alarm signal
+   what is a coredump? snapshot of process address space
+   what are threads?? 
+   difference between threads and processes?
+   what is shared betwen threads and processes?
+   can different threads in a process run on different cpu??
+   pthread_create()
+   pthread_join()
+   pthread_exit()
+   pthread_detach()
+   when compiling pthread code do it by linking pthread library
+   gcc <filename> -l pthread
+   race conditions
+   deadlocks
+   semaphores 
+   sem_open(), semd_wait(), sem_close(), sem_unlink(), sem_init(), sem_destroy()
+   mutexes
+   pthread_mutex_init(),pthread_mutex_lock(), pthread_mutex_unlock()
+   need for IPC? 
+   shared memory vs message q vs pipe vs socket ??
+   named vs unnamed pipe? pipe(),mkfifo(),open(),read(),write(),close()
+   sharedmemory? shmat(),shmget(),shmdt(),shmctl(),ftok()
+   message Q? ftok(), msgget(), msgsnd(),msgrcv(),msgctl()
+   socket? socket(), bind(), listen(), accept(), connect(), read(), write(), close(), 
+   struct sockaddr_in, struct sockadddr_in6, inet_pton(), inet_ntop(), ntohl(), htonl()
+   race conditions??
+   producer consumer issues in shared data in threads??
+   priority inversion 
+   prioirity inheritance
+   arrival time, burst time, exit time, response time, turn around time, throughput,
+4. Linux boot process bios->mbr->grub->kernetinit->init
+   concurrency, parallelism
+   on demand paging
+   page table
+   page fault
+   page stealing
+   Paging
+   TLB
+   pagein/pageout
+   virtual vs physical address
+   L1,L2,L3 cache vs RAM vs ROM
+
+

@@ -58,3 +58,5 @@ Basic important linux commands
 23. ls -a > stdout => redirect ls -a output to stdout buffer
     cat < stdout => print stdout buffer to terminal 
     if we do both cat will print ls -a output 
+24. kill -l => list all signal types
+25. ipcs => list all named IPCs present like shared memory, sem, q,etc
