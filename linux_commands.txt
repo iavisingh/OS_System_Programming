@@ -1,0 +1,60 @@
+
+Basic important linux commands
+...........................
+
+1. ls  => list all the files
+   ls -a => list hidden files 
+   ls -l =>  list detailed with permissions
+2. pwd => current working directory path
+3. sudo => super user permissions , use before other commands to have super user permissions
+4. cp => cp <source> <destination> => copy from source to destination
+   cp -r => copy whole directory
+   cp -i => ask before overwritting the files
+5. mv => move or rename the file
+   mv <oldname> <newname> => rename files
+   mv <oldfilepath> <newfilepath> => move file from old to new path
+6. rm => remove file
+   rm <filename> => remove file
+   rm -r <directory> => remove directory -r for recursively deleting, deleting one by one like a recursive function call.
+7. ipconfig => device network info, ipaddresses etc
+8. head <lines> <file> => print starting <lines> of the file
+9. tail <lines> <file> => print ending <lines of the file
+10. cat 
+    cat <filename> => print the file contents to stdout, output terminal, bash, sh
+    cat <file1> <file2> => concatenate file1 to file2
+11. grep <pattern> <file> => scan file and find occurance of pattern in it
+12. man <keyword> => linux api manual 
+    man 2 execv() => linux system programming apis/functions
+    man 3 printf() => glibc application apis/functions
+13. chmod <permissions> <file> => change permissions to a file 
+    chmod 0666 <file> => read, write permission to file for user, group and  others
+    chmod 0777 <file> => read, write, execute permission to file for user, group and others
+    chmod ug -rw <file> => remove read, write permission for user and group 
+    chmod ug +r <file> => add read permission for user and group 
+14. sudo su => get root access
+15. exit => exit root access
+16. ls > ls.log => write output of ls{all file name} to ls.log in current directory
+    > redirects output of any command in this case ls to file name ls.log here
+17. cat <filename> | grep <pattern> => output content of cat is added to pipe and grep is used to find the pattern in the file
+18. ps => snapshot of current process 
+    ps -eo pid,ni,cmd,pcpu
+    ps -eaf 
+    ps -aux => BSD style print
+19. taskset => lock or get current running CPU/CORE.
+    taskset -c <cpu> <executable> &
+    taskset -c 0 ./a.out & => run and lock ./a.out on cpu 0
+    taskset -p <pid> => get current cpu/core affinity of process pid
+20. nice -n <priority> <executable>=> run a program with a specific priority, nice is for running a new process
+    nice -n 0 ./a.out & => run a.out with default priority and & for running in background
+    nice -n +5 ./a.out & => 
+    nice -n -5 ./a.out & => 
+21. renice => renice is for updating priority of already running process 
+    renice -n <priority> <pid> => change priority of an already running process using its pid
+22. chrt -<scheduling algo> <executable> => run a process with specified scheduling algorithm
+    chrt -f 50 ./a.out => run a.out with FIFO algo and 50 priority
+    chrt -r 50 ./a.out => run a.out with RR algo and 50 priority
+    chrt -o 0 ./a.out => run a.out with default linux scheduling algorithm
+    /* you can scheduling algorithm using ps -A -o pid,comm,policy,pri command */
+23. ls -a > stdout => redirect ls -a output to stdout buffer
+    cat < stdout => print stdout buffer to terminal 
+    if we do both cat will print ls -a output 
