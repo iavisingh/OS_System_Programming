@@ -6,7 +6,7 @@ void handler(int sig) {
     printf("Caught signal %d once. Restoring default...\n", sig);
 
     // Restore default action for next time
-    signal(sig, SIG_DFL);
+    //signal(sig, SIG_DFL);
 }
 
 int main() {

@@ -1,4 +1,4 @@
-#include <sys/types.h>
+#includehttp://lkdlms.xnet-iot.com/fota/check <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -12,7 +12,8 @@ void main()
 {
 	int ret, pipe = 0;
 	char buffer[1024] = {0};
-
+	
+	/*
 	ret = mkfifo(PIPE_PATH, 0666);
 	if(0 == ret) {
 		printf("pipe: %s, create success\n", PIPE_PATH);

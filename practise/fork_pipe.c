@@ -5,8 +5,12 @@
 
 void main()
 {
-	int ret, pipefd[2] = {0};
-
+	int ret, pipefd[2] = {0}, pipe_fd2[2];
+	
+	//ret = pipe(pipefd2);
+	/*create unnamed pipe, returns a file descriptor
+	 * this fd when forked later will be same received on 
+	 * child and parent processes */
 	ret = pipe(pipefd);
 	if (0 == ret) {
 		printf("pipe created readfd:%d, writefd:%d\n", 
@@ -24,7 +28,8 @@ void main()
 		printf("Child process\n");
 		ret = write(pipefd[1], str, strlen(str));
 		printf("Child pipe write: %d, %s\n", ret, str);
-
+		
+		//ret = read(pipefd2[0], 
 
 	} else if (ret > 0) {
 
@@ -36,6 +41,9 @@ void main()
 		} else {
 			printf("Parent read: %d err\n", ret);
 		}
+
+
+		//ret = write(pipefd[1], "hello", 5);
 	
 	} else {
 		printf("fork failure\n");
