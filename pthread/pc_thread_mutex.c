@@ -16,14 +16,14 @@ void *producer(void *arg)
 	printf("PRODUCER THREAD\n");
 	while(1) {
 		
-		sem_wait(&can_produce);
+	//	sem_wait(&can_produce);
 
 		//ret = pthread_mutex_lock(&mutex);	
 		count++;
 		printf("producer: %d\n", count);
 		//ret = pthread_mutex_unlock(&mutex);
 		
-		sem_post(&can_consume);
+	//	sem_post(&can_consume);
 		
 		//usleep(500);
 
@@ -37,14 +37,14 @@ void *consumer(void *arg)
 	printf("\t\t\tCONSUMER THREAD\n");
 	while(1) {
 		
-		sem_wait(&can_consume);
+	//	sem_wait(&can_consume);
 
 		//ret = pthread_mutex_lock(&mutex);
 		count--;
 		printf("\t\t\tconsumer: %d\n", count);
 		//ret = pthread_mutex_unlock(&mutex);
 		
-		sem_post(&can_produce);
+	//	sem_post(&can_produce);
 		//usleep(500);
 
 	}

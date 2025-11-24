@@ -1,0 +1,58 @@
+Assignment 4 Multithreading, semaphore, pthread, mutex
+
+1. Write a C program that creates two threads using pthread_create().
+Use pthread_join() in main() to wait for both threads to finish.
+Run the program with pthread_join() and then without pthread_join(), and compare how the output changes.
+
+2. Create two threads with pthread_create().
+Use a global counter initialized to 0 and a mutex created using pthread_mutex_init().
+Inside each thread, use a for-loop to increment the global counter 5000 times.
+
+First run the program with pthread_mutex_lock() / pthread_mutex_unlock() around the loop.
+
+Then comment out the mutex lock/unlock lines and run again.
+
+Print the final counter value in main().
+Compare the results with mutex vs without mutex.
+
+
+3. Create two threads using pthread_create().
+Create a semaphore using sem_init() with initial value 0.
+
+In Thread 1: increment a global counter to 5000, then call sem_post(), then exit.
+
+In Thread 2: call sem_wait() when it starts, then print the global counter, then exit.
+
+Run the program and observe the output.
+Then comment out only the sem_wait() in Thread 2 and observe how the output changes.
+
+
+4. Create two threads using pthread_create():
+
+Thread 1 = Producer
+
+Thread 2 = Consumer
+
+Create two semaphores:
+
+can_produce initialized to 1
+
+can_consume initialized to 0
+
+Producer thread:
+
+sem_wait(can_produce)
+
+increment global counter by 1
+
+sem_post(can_consume)
+
+Consumer thread:
+
+sem_wait(can_consume)
+
+decrement global counter by 1
+
+sem_post(can_produce)
+
+Run the program and observe the alternating behavior between producer and consumer.
