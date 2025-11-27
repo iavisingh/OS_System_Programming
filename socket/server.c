@@ -11,8 +11,8 @@
 
 void main()
 {
-	int ret,listen_sock, client_sock;
-	struct sockaddr_in6 bind_addr, client_addr;
+	int ret,listen_sock, client_sock, opt;
+	struct sockaddr_in6 bind_addr ={0}, client_addr;
 	fd_set read_fd;
 	char buffer[BUFFER_SIZE];
 	socklen_t addrlen;
@@ -25,12 +25,15 @@ void main()
 		perror("socket create failure\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("sock: %d\n",listen_sock);
+	printf("sock ipv6: %d\n",listen_sock);
+	
+	opt = 1;
+	setsockopt(list_sock, SOL_SOCKET, SO_REUSEADDR, 
+			(const char *) &opt, sizeof(int));
 
 	bind_addr.sin6_port = htons(BIND_PORT);
 	bind_addr.sin6_family = AF_INET6;
 	bind_addr.sin6_addr = (in6addr_any);
-	//bind_addr.sin6_scope_id = 
 	
 	ret = bind(listen_sock, (const struct sockaddr *)&bind_addr, (socklen_t) sizeof(bind_addr));
 	if(ret == -1) {
@@ -49,6 +52,8 @@ void main()
 	printf("sock: %d, listen: %d\n",listen_sock, ret);
 
 	do {
+
+		addrlen = sizeof(client_addr);
 		client_sock = accept(listen_sock, (struct sockaddr *) &client_addr, &addrlen);
 		if(client_sock == -1) {	
 			perror("socket accept failure\n");
